@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla App Template</title>
+    <link rel="stylesheet" href="./css/2-form.css" />
     <link rel="stylesheet" href="./css/styles.css" />
     <link
       rel="stylesheet"
@@ -20,9 +21,21 @@
     />
   </head>
   <body>
-    <ul>
-      <li><a href="./1-gallery.html">Gallery</a></li>
-      <li><a href="./2-form.html">Form</a></li>
-    </ul>
+    <section>
+      <a href="./index.html" class="form">Go to Home</a>
+      <h1>form</h1>
+    </section>
+    <form class="feedback-form" autocomplete="off">
+      <label>
+        Email
+        <input type="email" name="email" autofocus />
+      </label>
+      <label>
+        Message
+        <textarea name="message" rows="8"></textarea>
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+    <script type="module" src="./js/2-form.js"></script>
   </body>
 </html>
