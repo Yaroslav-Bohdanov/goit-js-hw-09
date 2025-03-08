@@ -1,1 +1,17 @@
-
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1128px;
+  gap: 24px;
+}
+.gallery img {
+  width: 360px;
+  height: 200px;
+}
+.sl-overlay {
+  background-color: rgba(46, 47, 66, 0.8) !important;
+}

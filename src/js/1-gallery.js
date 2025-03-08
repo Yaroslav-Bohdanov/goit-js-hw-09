@@ -68,36 +68,28 @@ const images = [
   },
 ];
 
-const galleryContainer = document.querySelector('.gallery');
-
+const galleryList = document.querySelector('.gallery');
 const galleryMarkup = images
   .map(
     ({ preview, original, description }) => `
     <li class="gallery-item">
       <a class="gallery-link" href="${original}">
-        <img class="gallery-image" src="${preview}" data-source="${original}" alt="${description}">
+        <img 
+          class="gallery-image" 
+          src="${preview}" 
+          alt="${description}" 
+        />
       </a>
     </li>
   `
   )
   .join('');
+galleryList.innerHTML = galleryMarkup;
 
-galleryContainer.innerHTML = galleryMarkup;
-
-galleryContainer.addEventListener('click', onGalleryClick);
-
-function onGalleryClick(event) {
-  event.preventDefault();
-
-  const clickedImage = event.target;
-
-  if (!clickedImage.classList.contains('gallery-image')) return;
-
-  const largeImageURL = clickedImage.dataset.source;
-
-  const instance = basicLightbox.create(`
-    <img src="${largeImageURL}" width="1112" height="640">
-  `);
-
-  instance.show();
-}
+let gallery = new SimpleLightbox('.gallery li a', {
+  captions: true,
+  captionClass: 'style-caption',
+  captionsData: 'alt',
+  captionDelay: 250,
+  disableRightClick: true,
+});
